@@ -112,7 +112,7 @@ use yii\helpers\Html;
                     if(strlen($company[0]['stamp']) > 0){
                         echo Html::img($company[0]['stamp'], [
                             'alt' => 'Company',
-                            'width' => '100px',
+                            'width' => '140px',
                             'height' => '100px'
                             ]);
                     }
