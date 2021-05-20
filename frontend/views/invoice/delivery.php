@@ -5,11 +5,16 @@ use yii\helpers\Html;
     <tr>
         <!-- <td bgcolor="#a9a9a9" width="212px"> &nbsp;PT MAJU MUNDUR KENA</td> -->
         <td>         
-        <?= Html::img($company[0]['logo'], [
-        'alt' => 'Company',
-        'width' => '200px',
-        'height' => '120px'
-        ]);?>
+        <?php  
+        if(isset($company[0]['logo'])){
+            Html::img($company[0]['logo'], [
+                'alt' => 'Company',
+                'width' => '200px',
+                'height' => '120px'
+                ]);
+        }
+        
+        ?>
         </td>
 
 
