@@ -4,8 +4,8 @@ use yii\helpers\Html;
 <table border="0" width="100%" cellpadding="5" cellspacing="5">
     <tr>
         <!-- <td bgcolor="#a9a9a9" width="212px"> &nbsp;PT MAJU MUNDUR KENA</td> -->
-        <td>         
-        <?php  
+        <td>
+            <?php  
         if(strlen($company[0]['logo']) > 0){
             echo Html::img($company[0]['logo'], [
                 'alt' => 'Company',
@@ -19,7 +19,7 @@ use yii\helpers\Html;
 
 
         <td align="right">
-           <b> <?= $company[0]['nama_perusahaan'] ?></b> <br>
+            <b> <?= $company[0]['nama_perusahaan'] ?></b> <br>
             <?= $company[0]['kontak']?><br>
             <?= $company[0]['alamat']?>
         </td>
@@ -39,8 +39,8 @@ use yii\helpers\Html;
 
     <tr>
         <td align="right" bgcolor="#eee">
-            <b>Port of Loading  # <?= $model->portof_loading;?></b><br>
-            Port of Discharge  # <?= $model->portof_discharge;?><br>
+            <b>Port of Loading # <?= $model->portof_loading;?></b><br>
+            Port of Discharge # <?= $model->portof_discharge;?><br>
         </td>
     </tr>
     <tr>
@@ -73,14 +73,14 @@ use yii\helpers\Html;
                 ?>
 
                 <?php foreach($items as $m):?>
-                    <tr>
-                        <td><?= $ix;?></td>
-                        <td><?= $m->item;?></td>
-                        <td align="center"><?= $m->jb;?></td>
-                        <td align="center"><?= $m->gw;?></td>
-                        <td align="center"><?= $m->nw;?></td>
+                <tr>
+                    <td><?= $ix;?></td>
+                    <td><?= $m->item;?></td>
+                    <td align="center"><?= $m->jb;?></td>
+                    <td align="center"><?= $m->gw;?></td>
+                    <td align="center"><?= $m->nw;?></td>
 
-                    </tr>
+                </tr>
 
                 <?php 
                 $jb = $jb + $m['jb'];
@@ -93,13 +93,13 @@ use yii\helpers\Html;
                     <td colspan='2' align="center">
                         <b>Total</b>
                     </td>
-                    <td  align="center">
+                    <td align="center">
                         <b><?= number_format( $jb,0);?></b>
                     </td>
-                    <td  align="center">
+                    <td align="center">
                         <b><?= number_format( $gw,0);?></b>
                     </td>
-                    <td  align="center">
+                    <td align="center">
                         <b><?= number_format( $nw,0);?></b>
                     </td>
                 </tr>
@@ -111,25 +111,49 @@ use yii\helpers\Html;
 
 <br>
 
+<table width="40%" cellpadding="5" cellspacing="0" border="1">
+    <tr bgcolor="#eee">
+        <th width="60%" align="center">Name</th>
+        <th width="40%" align="center">Nett Weight</th>
+    </tr>
+    <?php foreach($items as $m):?>
+    <tr>
+        <td><?= $m->item;?></td>
+        <td align="center"><?= $m->nw;?></td>
+
+    </tr>
+
+    <?php 
+                endforeach;
+                ?>
+</table>
+<br>
+
 
 <table border="0" width="100%" cellpadding="5" cellspacing="5">
-<tr>
+    <tr>
         <td bgcolor="#eee">
-        <b>Delivery Order #</b> <?= $model->deliveryorder;?><br>
+            <b>Delivery Order #</b> <?= $model->deliveryorder;?><br>
             <b>Invoice #</b> <?= $model->invoice_number;?><br>
 
         </td>
     </tr>
     <tr>
-    <td align="left">
+        <td align="left">
             Dibawa Oleh <br>
             <br>
             <br>
-            <br>
-            <br>
-            <br>
-            <br>
 
+            <?php 
+                    if(strlen($company[0]['stamp']) > 0){
+                        echo Html::img($company[0]['stamp'], [
+                            'alt' => 'Company',
+                            'width' => '200px',
+                            'height' => '100px'
+                            ]);
+                    }
+            ?> <br><br>
+            <br>
             (Tanda Tangan & CAP)
         </td>
         <td align="right">
@@ -140,6 +164,7 @@ use yii\helpers\Html;
             <br>
             <br>
             <br>
+            
 
             (Tanda Tangan & CAP)
         </td>

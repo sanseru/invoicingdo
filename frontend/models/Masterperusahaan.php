@@ -31,7 +31,7 @@ class Masterperusahaan extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['alamat', 'kontak', 'logo'], 'string'],
+            [['alamat', 'kontak', 'logo','stamp'], 'string'],
             [['createdTime'], 'safe'],
             [['nama_perusahaan'], 'string', 'max' => 255],
             [['createdBy'], 'string', 'max' => 22],

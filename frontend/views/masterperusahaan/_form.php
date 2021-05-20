@@ -27,6 +27,8 @@ use yii\widgets\ActiveForm;
         </div>
         <div class="col-md-6">
             <?= $form->field($model, 'logo')->fileInput() ?>
+            <?= $form->field($model, 'stamp')->fileInput() ?>
+
         </div>
     </div>
 

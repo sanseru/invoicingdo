@@ -39,6 +39,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'format' => ['image', ['width' => '200px', 'height' => '100px']]
             ],
+            [
+                'attribute' => 'stamp',
+                'value'=> function ($model) {
+                    return  $model->stamp;
+                },
+                'format' => ['image', ['width' => '200px', 'height' => '100px']]
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

@@ -71,11 +71,20 @@ class MasterperusahaanController extends Controller
         if ($model->load(Yii::$app->request->post())) {
 
             $image1 = UploadedFile::getInstance($model, 'logo');
+            $image2 = UploadedFile::getInstance($model, 'stamp');
+
             if(isset($image1->tempName)){
                 $tmpfile_contents1 = file_get_contents( $image1->tempName );
                 $pic1 = 'data:image/' . $image1->extension . ';base64,' . base64_encode($tmpfile_contents1);               
                 $model->logo = $pic1;
             }
+
+            if(isset($image2->tempName)){
+                $tmpfile_contents2 = file_get_contents( $image2->tempName );
+                $pic2 = 'data:image/' . $image2->extension . ';base64,' . base64_encode($tmpfile_contents2);               
+                $model->stamp = $pic2;
+            }
+
             $model->createdBy = Yii::$app->user->identity->username;
             $model->createdTime = date('Y-m-d H:i:s');
             $model->save(false);
@@ -100,12 +109,25 @@ class MasterperusahaanController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) ) {
+            $modelx = $this->findModel($id);
 
             $image1 = UploadedFile::getInstance($model, 'logo');
+            $image2 = UploadedFile::getInstance($model, 'stamp');
+
             if(isset($image1->tempName)){
                 $tmpfile_contents1 = file_get_contents( $image1->tempName );
                 $pic1 = 'data:image/' . $image1->extension . ';base64,' . base64_encode($tmpfile_contents1);               
                 $model->logo = $pic1;
+            }else{
+                $model->logo = $modelx->logo;
+            }
+            if(isset($image2->tempName)){
+                    $tmpfile_contents2 = file_get_contents( $image2->tempName );
+                $pic2 = 'data:image/' . $image2->extension . ';base64,' . base64_encode($tmpfile_contents2);               
+                $model->stamp = $pic2;
+            }else{
+                $model->stamp = $modelx->stamp;
+
             }
             $model->save(false);
             return $this->redirect(['view', 'id' => $model->id]);

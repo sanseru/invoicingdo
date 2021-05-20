@@ -38,6 +38,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => $model->logo,
                 'format' => ['image', ['width' => '400px', 'height' => '200']]
             ],
+            [
+                'attribute' => 'stamp',
+                'value' => $model->stamp,
+                'format' => ['image', ['width' => '400px', 'height' => '200']]
+            ],
             'createdBy',
             'createdTime',
         ],
