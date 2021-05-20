@@ -5,7 +5,7 @@ use yii\helpers\Html;
     <tr>
         <td>
         <?php  
-            if(!empty($company[0]['logo'])){
+            if($company[0]['logo']!= ""){
                 Html::img($company[0]['logo'], [
                     'alt' => 'Company',
                     'width' => '100px',
