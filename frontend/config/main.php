@@ -38,7 +38,7 @@ return [
             'errorAction' => 'site/error',
         ],
         
-        /*'urlManager' => [
+        'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
@@ -58,7 +58,7 @@ return [
                 ['pattern' => 'itemsView','route' => 'items/view','suffix' => '.xml',],
 
             ],
-        ], */
+        ],
         
     ],
     'params' => $params,
