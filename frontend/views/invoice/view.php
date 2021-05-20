@@ -4,15 +4,11 @@ use yii\helpers\Html;
 <table border="0" width="100%">
     <tr>
         <td>
-        <?php  
-            if(isset($company[0]['logo'])){
-                Html::img($company[0]['logo'], [
-                    'alt' => 'Company',
-                    'width' => '100px',
-                    'height' => '80px'
-                    ]);
-            }
-        ?>
+            <?= Html::img($company[0]['logo'], [
+        'alt' => 'Company',
+        'width' => '100px',
+        'height' => '80px'
+        ]);?>
         </td>
         <td align="right">
             <?= $company[0]['nama_perusahaan'] ?> <br>
