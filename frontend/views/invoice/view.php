@@ -104,12 +104,20 @@ use yii\helpers\Html;
         </td>
     </tr>
     <tr>
-        <td align="right">
+        <td align="left">
             Jakarta, <?= tanggal_indo(date("d m Y", strtotime($model->created_at)));?> <br>
             <br>
             <br>
-            <br>
-            <br>
+            <?php 
+                    if(strlen($company[0]['stamp']) > 0){
+                        echo Html::img($company[0]['stamp'], [
+                            'alt' => 'Company',
+                            'width' => '100px',
+                            'height' => '100px'
+                            ]);
+                    }
+            ?> <br><br>
+
             (..................................)
         </td>
     </tr>
