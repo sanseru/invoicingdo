@@ -5,8 +5,8 @@ use yii\helpers\Html;
     <tr>
         <td>
         <?php  
-            if($company[0]['logo'] != 0){
-                Html::img($company[0]['logo'], [
+            if(strlen($company[0]['logo']) > 0){
+                echo Html::img($company[0]['logo'], [
                     'alt' => 'Company',
                     'width' => '100px',
                     'height' => '80px'
