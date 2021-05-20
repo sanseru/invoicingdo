@@ -99,7 +99,15 @@ class MasterperusahaanController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) ) {
+
+            $image1 = UploadedFile::getInstance($model, 'logo');
+            if(isset($image1->tempName)){
+                $tmpfile_contents1 = file_get_contents( $image1->tempName );
+                $pic1 = 'data:image/' . $image1->extension . ';base64,' . base64_encode($tmpfile_contents1);               
+                $model->logo = $pic1;
+            }
+            $model->save(false);
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
