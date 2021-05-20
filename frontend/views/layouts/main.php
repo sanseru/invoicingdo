@@ -48,8 +48,8 @@ AppAsset::register($this);
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'Invoice', 'url' => ['/invoice/index']],
             ['label' => 'Master', 'url' => ['#'],'items' => [
-                ['label' => 'Master Company profile', 'url' => 'masterperusahaan'],
-                ['label' => 'Master Item', 'url' => 'items'],
+                ['label' => 'Master Company profile', 'url' => 'masterperusahaan/index'],
+                ['label' => 'Master Item', 'url' => 'items/index'],
             ],
         ],
         ];
