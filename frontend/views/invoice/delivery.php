@@ -6,7 +6,7 @@ use yii\helpers\Html;
         <!-- <td bgcolor="#a9a9a9" width="212px"> &nbsp;PT MAJU MUNDUR KENA</td> -->
         <td>         
         <?php  
-        if($company[0]['logo']!= ""){
+        if($company[0]['logo'] != 0){
             Html::img($company[0]['logo'], [
                 'alt' => 'Company',
                 'width' => '200px',
