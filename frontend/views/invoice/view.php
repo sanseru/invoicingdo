@@ -30,7 +30,7 @@ use yii\helpers\Html;
     </tr>
 
 </table>
-<table border="0" width="100%">
+<!-- <table border="0" width="100%">
     <tr>
         <td align="center">
             <?php if($model->status==\frontend\models\ModelInvoice::STATUS_PAID):?>
@@ -40,7 +40,7 @@ use yii\helpers\Html;
             <?php endif;?>
         </td>
     </tr>
-</table>
+</table> -->
 
 
 <table width="100%" cellpadding="5" cellspacing="5">
