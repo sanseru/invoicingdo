@@ -79,7 +79,7 @@ class InvoiceController extends Controller
         $model = $this->findModel($id);
         $items = InvoiceItem::find()->where(['id_invoice'=>$id])->all();
         $companyx = Masterperusahaan::find()->where(['id'=>$model->idheadcompany])->all();
-        $sql = "SELECT `item`, COUNT(item) AS `cnt` FROM `invoice_item` WHERE `id_invoice`=$id GROUP BY `item`";                                      
+        $sql = "SELECT `item`, sum(nw) AS `cnt` FROM `invoice_item` WHERE `id_invoice`=$id GROUP BY `item`";                                      
         $leadsCount = Yii::$app->db->createCommand($sql)->queryAll();
         $content = $this->renderPartial('view',['model'=>$model,'items'=>$items,'company'=>$companyx,'leadsCount'=>$leadsCount]);
 
@@ -119,7 +119,7 @@ class InvoiceController extends Controller
         $model = $this->findModel($id);
         $items = InvoiceItem::find()->where(['id_invoice'=>$id])->all();
         $companyx = Masterperusahaan::find()->where(['id'=>$model->idheadcompany])->all();
-        $sql = "SELECT `item`, COUNT(item) AS `cnt` FROM `invoice_item` WHERE `id_invoice`=$id GROUP BY `item`";                                      
+        $sql = "SELECT `item`, sum(nw) AS `cnt` FROM `invoice_item` WHERE `id_invoice`=$id GROUP BY `item`";                                      
         $leadsCount = Yii::$app->db->createCommand($sql)->queryAll();
         $content = $this->renderPartial('delivery',['model'=>$model,'items'=>$items,'company'=>$companyx,'leadsCount'=>$leadsCount]);
 
