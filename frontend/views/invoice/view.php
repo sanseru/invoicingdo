@@ -81,8 +81,8 @@ use yii\helpers\Html;
         <td><?= $ix;?></td>
         <td><?= $m['item'];?></td>
         <td align="center"><?= $m['cnt'];?></td>
-        <td align="center">$. <?=  number_format($m['total'],0);?></td>
-        <td align="center">$. <?=   number_format($m['cnt']*$m['total'],0);?></td>
+        <td align="right">$. <?=  number_format($m['total'],0);?></td>
+        <td align="right">$. <?=   number_format($m['cnt']*$m['total'],0);?></td>
     </tr>
 
 
