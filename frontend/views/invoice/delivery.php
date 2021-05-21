@@ -92,10 +92,10 @@ use yii\helpers\Html;
             <b>Total</b>
         </td>
         <td align="center">
-            <b><?= number_format( $jb,0);?></b>
+            <b><?= number_format( $gw,0);?></b>
         </td>
         <td align="center">
-            <b><?= number_format( $gw,0);?></b>
+            <b><?= number_format( $jb,0);?></b>
         </td>
         <td align="center">
             <b><?= number_format( $nw,0);?></b>
