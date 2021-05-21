@@ -150,7 +150,7 @@ use yii\helpers\Html;
         </td>
     </tr>
     <tr bgcolor="#eee">
-        <td colspan='4' align="right">
+        <td colspan='4' align="center">
             <b>Subtotal</b><br>
         </td>
         <td align="center">
