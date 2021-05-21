@@ -61,11 +61,17 @@ use yii\helpers\Html;
     
 
     $ix = 1;
+    $jumlahss = 0 ;
+    
     ?>
-<table width="40%" cellpadding="5" cellspacing="0" border="1">
+<table width="100%" cellpadding="5" cellspacing="0" border="1">
     <tr bgcolor="#eee">
         <th width="60%" align="center">Name</th>
         <th width="40%" align="center">Nett Weight</th>
+        <th width="40%" align="center">Price</th>
+        <th width="40%" align="center">Total</th>
+
+
     </tr>
     <?php 
     ?>
@@ -74,16 +80,86 @@ use yii\helpers\Html;
         <td><?= $ix;?></td>
         <td><?= $m['item'];?></td>
         <td align="center"><?= $m['cnt'];?></td>
+        <td align="center"><?=  number_format($m['total'],0);?></td>
+        <td align="center"><?=   number_format($m['cnt']*$m['total'],0);?></td>
+    </tr>
+
+
+    <?php 
+    $ix++;
+    $jumlahss = $jumlahss +  $m['cnt']*$m['total'];
+
+    endforeach;
+    ?>
+
+<tr bgcolor="#eee">
+        <td colspan='4' align="center">
+            <b>Subtotal</b><br>
+        </td>
+        <td align="center">
+            <b>$. <?= number_format($jumlahss,0);?></b><br>
+
+        </td>
+    </tr>
+</table>
+
+
+
+<!-- <table width="100%" cellpadding="5" cellspacing="0" border="1">
+    <tr bgcolor="#eee">
+        <th width="5%" align="center">No</th>
+        <th width="60%" align="center">Name</th>
+         <th align="center">Jumbo Bags/Bar</th>
+        <th align="center">Gross Weight</th> 
+        <th align="center">Nett Weight</th>
+        <th align="center">Price</th>
+        <th align="center">Total</th>
+
+        
+
+
+    </tr>
+    <?php 
+    
+    $jb = 0;
+    $gw = 0;
+    $nw = 0;
+    $ix = 1;
+    $jumlahss = 0 ;
+    ?>
+
+    <?php foreach($items as $m):?>
+    <tr>
+        <td><?= $ix;?></td>
+        <td><?= $m->item;?></td>
+        <td align="center"><?= $m->nw;?></td>
+        <td align="center"><?= number_format($m->total,0);?></td>
+        <td align="center">$. <?= number_format($m->total*$m->nw,0);?></td>
+
+
 
     </tr>
 
     <?php 
-    $ix++;          
+    $jb = $jb + $m['jb'];
+    $gw = $gw + $m['gw'];
+    $nw = $nw + $m['nw'];
+    $jumlahss = $jumlahss + $m->total*$m->nw;
+
+    $ix++; 
     endforeach;
     ?>
-</table>
+    <tr bgcolor="#eee">
+        <td colspan='4' align="center">
+            <b>Subtotal</b><br>
+        </td>
+        <td align="center">
+            <b>$. <?= number_format($jumlahss,0);?></b><br>
 
+        </td>
+    </tr>
 
+</table> -->
 
 <table border="0" width="100%" cellpadding="5" cellspacing="5">
     <tr>

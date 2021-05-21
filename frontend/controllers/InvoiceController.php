@@ -79,7 +79,7 @@ class InvoiceController extends Controller
         $model = $this->findModel($id);
         $items = InvoiceItem::find()->where(['id_invoice'=>$id])->all();
         $companyx = Masterperusahaan::find()->where(['id'=>$model->idheadcompany])->all();
-        $sql = "SELECT `item`, sum(nw) AS `cnt` FROM `invoice_item` WHERE `id_invoice`=$id GROUP BY `item`";                                      
+        $sql = "SELECT `item`, sum(nw) AS `cnt`,total FROM `invoice_item` WHERE `id_invoice`=$id GROUP BY `item`,total";                                      
         $leadsCount = Yii::$app->db->createCommand($sql)->queryAll();
         $content = $this->renderPartial('view',['model'=>$model,'items'=>$items,'company'=>$companyx,'leadsCount'=>$leadsCount]);
 
