@@ -93,7 +93,7 @@ use yii\helpers\Html;
     ?>
 
 <tr bgcolor="#eee">
-        <td colspan='4' align="center">
+        <td colspan='2' align="center">
             <b>Subtotal</b><br>
         </td>
         <td align="center">
