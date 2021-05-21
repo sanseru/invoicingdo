@@ -74,8 +74,8 @@ use yii\helpers\Html;
     <tr>
         <td><?= $ix;?></td>
         <td><?= $m->item;?></td>
-        <td align="center"><?= $m->jb;?></td>
         <td align="center"><?= $m->gw;?></td>
+        <td align="center"><?= $m->jb;?></td>
         <td align="center"><?= $m->nw;?></td>
 
     </tr>
