@@ -150,20 +150,12 @@ use yii\helpers\Html;
         </td>
     </tr>
     <tr bgcolor="#eee">
-        <td align="right">
+        <td colspan='4' align="right">
             <b>Subtotal</b><br>
         </td>
         <td align="center">
-            <b>$.<?= number_format($model->jumlahss,0);?></b><br>
+            <b>$.<?= number_format($jumlahss,0);?></b><br>
 
-        </td>
-    </tr>
-    <tr bgcolor="#eee">
-        <td align="center">
-            <b>Total</b>
-        </td>
-        <td align="center">
-            <b>$.<?= number_format($model->jumlahss,0);?></b>
         </td>
     </tr>
 
