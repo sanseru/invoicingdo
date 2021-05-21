@@ -51,10 +51,9 @@ use yii\helpers\Html;
 
         </td>
     </tr>
+</table>
 
-    <tr>
-        <td>
-            <br><br>
+<br><br>
             <table width="100%" cellpadding="5" cellspacing="0" border="1">
                 <tr bgcolor="#eee">
                     <th width="5%" align="center">No</th>
@@ -105,9 +104,7 @@ use yii\helpers\Html;
                 </tr>
 
             </table>
-        </td>
-    </tr>
-</table>
+
 
 <br>
 
