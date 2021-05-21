@@ -122,7 +122,7 @@ $(document).ready(function() {
                                     <th style="text-align: center">Jumbo Bags/Bar</th>
                                     <th style=" text-align: center">Gross Weight</th>
                                     <th style=" text-align: center">Net Weight</th>
-                                    <th style=" text-align: center">Total</th>
+                                    <th style=" text-align: center">Price</th>
 
 
                                 </tr>
