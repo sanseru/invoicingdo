@@ -56,7 +56,7 @@ use yii\helpers\Html;
 </table>
 
 <br>
-            <table width="100%" cellpadding="5" cellspacing="0" border="1">
+            <!-- <table width="100%" cellpadding="5" cellspacing="0" border="1">
                 <tr bgcolor="#eee">
                     <th width="80%" align="center">Description</th>
                     <th align="center">Total</th>
@@ -84,6 +84,57 @@ use yii\helpers\Html;
         </td>
         <td align="center">
             <b>$.<?= number_format($model->amount,0);?></b>
+        </td>
+    </tr>
+
+</table> -->
+
+<table width="100%" cellpadding="5" cellspacing="0" border="1">
+    <tr bgcolor="#eee">
+        <th width="5%" align="center">No</th>
+        <th width="60%" align="center">Name</th>
+        <th align="center">Jumbo Bags/Bar</th>
+        <th align="center">Gross Weight</th>
+        <th align="center">Nett Weight</th>
+
+    </tr>
+    <?php 
+    
+    $jb = 0;
+    $gw = 0;
+    $nw = 0;
+    $ix = 1;
+    ?>
+
+    <?php foreach($items as $m):?>
+    <tr>
+        <td><?= $ix;?></td>
+        <td><?= $m->item;?></td>
+        <td align="center"><?= $m->jb;?></td>
+        <td align="center"><?= $m->gw;?></td>
+        <td align="center"><?= $m->nw;?></td>
+
+    </tr>
+
+    <?php 
+    $jb = $jb + $m['jb'];
+    $gw = $gw + $m['gw'];
+    $nw = $nw + $m['nw'];
+    $ix++; 
+    endforeach;
+    ?>
+    <tr bgcolor="#eee">
+        <td colspan='2' align="center">
+            <b>Total</b>
+        </td>
+        <td align="center">
+            <b><?= number_format( $jb,0);?></b>
+        </td>
+        <td align="center">
+            <b><?= number_format( $gw,0);?></b>
+        </td>
+        <td align="center">
+            <b><?= number_format( $nw,0);?></b>
         </td>
     </tr>
 
