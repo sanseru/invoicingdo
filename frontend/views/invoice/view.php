@@ -74,7 +74,7 @@ use yii\helpers\Html;
             <b>Subtotal</b><br>
         </td>
         <td align="center">
-            <b>Rp.<?= number_format($model->amount,0);?></b><br>
+            <b>$.<?= number_format($model->amount,0);?></b><br>
 
         </td>
     </tr>
@@ -83,7 +83,7 @@ use yii\helpers\Html;
             <b>Total</b>
         </td>
         <td align="center">
-            <b>Rp.<?= number_format($model->amount,0);?></b>
+            <b>$.<?= number_format($model->amount,0);?></b>
         </td>
     </tr>
 
