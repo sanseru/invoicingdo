@@ -52,9 +52,10 @@ use yii\helpers\Html;
             <?= $model->address;?><br>
         </td>
     </tr>
-    <tr>
-        <td>
-            <br><br>
+
+</table>
+
+<br>
             <table width="100%" cellpadding="5" cellspacing="0" border="1">
                 <tr bgcolor="#eee">
                     <th width="80%" align="center">Description</th>
@@ -63,7 +64,7 @@ use yii\helpers\Html;
                 <?php foreach($items as $m):?>
                 <tr>
                     <td><?= $m->item;?></td>
-                    <td align="center">Rp.<?= number_format($m->total,0);?></td>
+                    <td align="center">$.<?= number_format($m->total,0);?></td>
         </td>
     </tr>
     <?php endforeach;?>
@@ -87,10 +88,26 @@ use yii\helpers\Html;
     </tr>
 
 </table>
-</td>
-</tr>
-</table>
+
 <br>
+<table width="40%" cellpadding="5" cellspacing="0" border="1">
+    <tr bgcolor="#eee">
+        <th width="60%" align="center">Name</th>
+        <th width="40%" align="center">Nett Weight</th>
+    </tr>
+    <?php 
+    ?>
+    <?php foreach($leadsCount as $m):?>
+    <tr>
+        <td><?= $m['item'];?></td>
+        <td align="center"><?= $m['cnt'];?></td>
+
+    </tr>
+
+    <?php 
+                endforeach;
+                ?>
+</table>
 <br>
 
 <table border="0" width="100%" cellpadding="5" cellspacing="5">
