@@ -97,70 +97,12 @@ use yii\helpers\Html;
         <td colspan='4' align="center">
             <b>Subtotal</b><br>
         </td>
-        <td align="center">
+        <td align="right">
             <b>$. <?= number_format($jumlahss,0);?></b><br>
 
         </td>
     </tr>
 </table>
-
-
-
-<!-- <table width="100%" cellpadding="5" cellspacing="0" border="1">
-    <tr bgcolor="#eee">
-        <th width="5%" align="center">No</th>
-        <th width="60%" align="center">Name</th>
-         <th align="center">Jumbo Bags/Bar</th>
-        <th align="center">Gross Weight</th> 
-        <th align="center">Nett Weight</th>
-        <th align="center">Price</th>
-        <th align="center">Total</th>
-
-        
-
-
-    </tr>
-    <?php 
-    
-    $jb = 0;
-    $gw = 0;
-    $nw = 0;
-    $ix = 1;
-    $jumlahss = 0 ;
-    ?>
-
-    <?php foreach($items as $m):?>
-    <tr>
-        <td><?= $ix;?></td>
-        <td><?= $m->item;?></td>
-        <td align="center"><?= $m->nw;?></td>
-        <td align="center"><?= number_format($m->total,0);?></td>
-        <td align="center">$. <?= number_format($m->total*$m->nw,0);?></td>
-
-
-
-    </tr>
-
-    <?php 
-    $jb = $jb + $m['jb'];
-    $gw = $gw + $m['gw'];
-    $nw = $nw + $m['nw'];
-    $jumlahss = $jumlahss + $m->total*$m->nw;
-
-    $ix++; 
-    endforeach;
-    ?>
-    <tr bgcolor="#eee">
-        <td colspan='4' align="center">
-            <b>Subtotal</b><br>
-        </td>
-        <td align="center">
-            <b>$. <?= number_format($jumlahss,0);?></b><br>
-
-        </td>
-    </tr>
-
-</table> -->
 
 <table border="0" width="100%" cellpadding="5" cellspacing="5">
     <tr>
