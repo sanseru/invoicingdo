@@ -57,9 +57,9 @@ use yii\helpers\Html;
     <tr bgcolor="#eee">
         <th width="5%" align="center">No</th>
         <th width="60%" align="center">Name</th>
-        <th align="center">Jumbo Bags/Bar</th>
-        <th align="center">Gross Weight</th>
-        <th align="center">Nett Weight</th>
+        <th align="center">Brutto</th>
+        <th align="center">Terra</th>
+        <th align="center">Netto</th>
 
     </tr>
     <?php 
