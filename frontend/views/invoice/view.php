@@ -135,7 +135,7 @@ use yii\helpers\Html;
     $ix++; 
     endforeach;
     ?>
-    <tr bgcolor="#eee">
+    <!-- <tr bgcolor="#eee">
         <td colspan='2' align="center">
             <b>Total</b>
         </td>
@@ -148,7 +148,7 @@ use yii\helpers\Html;
         <td align="center">
             <b><?= number_format( $jumlahss,0);?></b>
         </td>
-    </tr>
+    </tr> -->
     <tr bgcolor="#eee">
         <td colspan='4' align="center">
             <b>Subtotal</b><br>
