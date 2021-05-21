@@ -120,7 +120,7 @@ use yii\helpers\Html;
         <td align="center"><?= $m->gw;?></td> -->
         <td align="center"><?= $m->nw;?></td>
         <td align="center"><?= number_format($m->total,0);?></td>
-        <td align="center"><?= number_format($m->total*$m->nw,0);?></td>
+        <td align="center">$. <?= number_format($m->total*$m->nw,0);?></td>
 
 
 
@@ -154,7 +154,7 @@ use yii\helpers\Html;
             <b>Subtotal</b><br>
         </td>
         <td align="center">
-            <b>$.<?= number_format($jumlahss,0);?></b><br>
+            <b>$. <?= number_format($jumlahss,0);?></b><br>
 
         </td>
     </tr>
