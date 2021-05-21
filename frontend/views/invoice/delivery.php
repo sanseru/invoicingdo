@@ -116,10 +116,10 @@ use yii\helpers\Html;
         <th width="60%" align="center">Name</th>
         <th width="40%" align="center">Nett Weight</th>
     </tr>
-    <?php foreach($items as $m):?>
+    <?php foreach($leadsCount as $m):?>
     <tr>
         <td><?= $m->item;?></td>
-        <td align="center"><?= $m->nw;?></td>
+        <td align="center"><?= $m->cnt;?></td>
 
     </tr>
 
