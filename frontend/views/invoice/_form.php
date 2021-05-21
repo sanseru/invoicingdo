@@ -119,8 +119,8 @@ $(document).ready(function() {
                                 <tr>
                                     <th style=" text-align: center"></th>
                                     <th style="text-align: center" class="required">Name</th>
-                                    <th style=" text-align: center">Gross Weight</th>
                                     <th style="text-align: center">Terra</th>
+                                    <th style=" text-align: center">Bruto</th>
                                     <th style=" text-align: center">Netto</th>
                                     <th style=" text-align: center">Price</th>
 
@@ -136,11 +136,11 @@ $(document).ready(function() {
                                             ['prompt'=>'- Select Items-','class'=>'form-control select2tags', 'id'=>'itemstags','style' => 'width: 100%'])->label(false); ?>
                                     
                                     </td>
-                                    <td style="padding:10px" width="10%">
-                                        <?php echo $form->field($m, "[{$i}]gw")->textInput(['placeholder'=>'Kg'])->label(false);?>
-                                    </td>
                                     <td style="padding:10px" width="20%">
                                         <?php echo $form->field($m, "[{$i}]jb")->textInput(['placeholder'=>'Unit'])->label(false);?>
+                                    </td>
+                                    <td style="padding:10px" width="10%">
+                                        <?php echo $form->field($m, "[{$i}]gw")->textInput(['placeholder'=>'Kg'])->label(false);?>
                                     </td>
                                     <td style="padding:10px" width="10%">
                                         <?php echo $form->field($m, "[{$i}]nw")->textInput(['placeholder'=>'Kg'])->label(false);?>
