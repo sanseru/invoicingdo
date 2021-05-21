@@ -119,6 +119,7 @@ class InvoiceController extends Controller
         $items = InvoiceItem::find()->where(['id_invoice'=>$id])->all();
         $companyx = Masterperusahaan::find()->where(['id'=>$model->idheadcompany])->all();
         $content = $this->renderPartial('delivery',['model'=>$model,'items'=>$items,'company'=>$companyx]);
+        $leadsCount = InvoiceItem::find()->select(['item,COUNT(item) AS cnt'])->where(['id_invoice'=>$id])->groupBy(['item'])->all();
 
         // setup kartik\mpdf\Pdf component
         $pdf = new Pdf([
