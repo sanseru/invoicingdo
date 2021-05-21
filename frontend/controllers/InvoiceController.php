@@ -37,7 +37,7 @@ class InvoiceController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['index','delivery','view','update','delete','payment'],
+                        'actions' => ['index','delivery','view','update','delete','payment','create'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
