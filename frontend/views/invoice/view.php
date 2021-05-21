@@ -93,9 +93,14 @@ use yii\helpers\Html;
     <tr bgcolor="#eee">
         <th width="5%" align="center">No</th>
         <th width="60%" align="center">Name</th>
-        <th align="center">Jumbo Bags/Bar</th>
-        <th align="center">Gross Weight</th>
+        <!-- <th align="center">Jumbo Bags/Bar</th>
+        <th align="center">Gross Weight</th> -->
         <th align="center">Nett Weight</th>
+        <th align="center">Price</th>
+        <th align="center">Total</th>
+
+        
+
 
     </tr>
     <?php 
@@ -110,9 +115,13 @@ use yii\helpers\Html;
     <tr>
         <td><?= $ix;?></td>
         <td><?= $m->item;?></td>
-        <td align="center"><?= $m->jb;?></td>
-        <td align="center"><?= $m->gw;?></td>
+        <!-- <td align="center"><?= $m->jb;?></td>
+        <td align="center"><?= $m->gw;?></td> -->
         <td align="center"><?= $m->nw;?></td>
+        <td align="center"><?= $m->total;?></td>
+        <td align="center"><?= $m->total*$m->nw;?></td>
+
+
 
     </tr>
 
