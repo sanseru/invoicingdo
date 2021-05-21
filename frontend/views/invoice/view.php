@@ -109,6 +109,7 @@ use yii\helpers\Html;
     $gw = 0;
     $nw = 0;
     $ix = 1;
+    $jumlahss = 0 ;
     ?>
 
     <?php foreach($items as $m):?>
@@ -118,8 +119,8 @@ use yii\helpers\Html;
         <!-- <td align="center"><?= $m->jb;?></td>
         <td align="center"><?= $m->gw;?></td> -->
         <td align="center"><?= $m->nw;?></td>
-        <td align="center"><?= $m->total;?></td>
-        <td align="center"><?= $m->total*$m->nw;?></td>
+        <td align="center"><?= number_format($m->total,0);?></td>
+        <td align="center"><?= number_format($m->total*$m->nw,0);?></td>
 
 
 
@@ -129,6 +130,8 @@ use yii\helpers\Html;
     $jb = $jb + $m['jb'];
     $gw = $gw + $m['gw'];
     $nw = $nw + $m['nw'];
+    $jumlahss = $jumlahss + $m->total*$m->nw;
+
     $ix++; 
     endforeach;
     ?>
@@ -140,10 +143,10 @@ use yii\helpers\Html;
             <b><?= number_format( $jb,0);?></b>
         </td>
         <td align="center">
-            <b><?= number_format( $gw,0);?></b>
+            <b></b>
         </td>
         <td align="center">
-            <b><?= number_format( $nw,0);?></b>
+            <b><?= number_format( $jumlahss,0);?></b>
         </td>
     </tr>
 
