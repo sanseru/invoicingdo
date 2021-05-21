@@ -66,10 +66,11 @@ use yii\helpers\Html;
     ?>
 <table width="100%" cellpadding="5" cellspacing="0" border="1">
     <tr bgcolor="#eee">
-        <th width="60%" align="center">Name</th>
-        <th width="40%" align="center">Nett Weight</th>
-        <th width="40%" align="center">Price</th>
-        <th width="40%" align="center">Total</th>
+        <th width="10%" align="center">Name</th>
+        <th width="30%" align="center">Name</th>
+        <th  align="center">Nett Weight</th>
+        <th  align="center">Price</th>
+        <th  align="center">Total</th>
 
 
     </tr>
@@ -93,7 +94,7 @@ use yii\helpers\Html;
     ?>
 
 <tr bgcolor="#eee">
-        <td colspan='2' align="center">
+        <td colspan='4' align="center">
             <b>Subtotal</b><br>
         </td>
         <td align="center">
