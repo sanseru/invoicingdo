@@ -1,6 +1,25 @@
 <?php
 
 /* @var $this yii\web\View */
+$this->registerJs("
+
+$(document).ready(function() {
+    $.post('invoice/servicecount',
+    function(data, status){
+
+        console.log(data);
+        if(data.created){
+        $('.Opens').html(data.created.cnt);
+        }
+        if(data.created){
+            $('.Paid').html(data.paid.cnt);
+        }
+        $('.items').html(data.items);
+
+    });
+});
+");
+
 
 $this->title = 'Home';
 ?>
@@ -11,19 +30,19 @@ $this->title = 'Home';
             <div class="ico-card-inner">
                 <div class="ico-card-primary">
                     <h4 class="ico-card-title">Invoice<span class="ico-card-category">Open</span> </h4>
-                    <h5 class="ico-card-eta"><?= date('d-M-Y H:i:s'); ?></h5>
+                    <h5 class="ico-card-eta">Invoice Yang Masih Open</h5>
                 </div>
-                <h4 class="ico-card-rating">9.1</h4>
+                <h4 class="ico-card-rating Opens"></h4>
             </div>
             <progress max="100" value="100"></progress>
         </div>
         <div class="ico-card">
             <div class="ico-card-inner">
                 <div class="ico-card-primary">
-                    <h4 class="ico-card-title">Invoice<span class="ico-card-category">Close</span> </h4>
-                    <h5 class="ico-card-eta"><?= date('d-M-Y H:i:s'); ?></h5>
+                    <h4 class="ico-card-title">Invoice<span class="ico-card-category">Paid</span> </h4>
+                    <h5 class="ico-card-eta">Invoce Yang Sudah Paid</h5>
                 </div>
-                <h2 class="ico-card-rating">7.1</h2>
+                <h2 class="ico-card-rating Paid"></h2>
             </div>
             <progress max="100" value="100"></progress>
         </div>
@@ -31,9 +50,9 @@ $this->title = 'Home';
             <div class="ico-card-inner">
                 <div class="ico-card-primary">
                     <h4 class="ico-card-title">Master Items<span class="ico-card-category"></span> </h4>
-                    <h5 class="ico-card-eta"><?= date('d-M-Y H:i:s'); ?></h5>
+                    <h5 class="ico-card-eta">Jumlah Master Data</h5>
                 </div>
-                <h2 class="ico-card-rating">5.1</h2>
+                <h2 class="ico-card-rating items">01</h2>
             </div>
             <progress max="100" value="100"></progress>
         </div>

@@ -155,6 +155,8 @@ $(document).ready(function() {
                     </div>
                 <?php endforeach; ?>
             </div>
+            <button type="button" class="add-item btn btn-success btn-sm pull-right"><i class="glyphicon glyphicon-plus"></i> Add</button>
+
         </div>
     </div><!-- .panel -->
     <?php DynamicFormWidget::end(); ?>

@@ -165,6 +165,7 @@ a.desc:after {
     margin: 0.35rem 0;
     color: #555;
     font-size: 0.93em;
+      font-weight: bolder;
 }
 
 .ico-card-title span {

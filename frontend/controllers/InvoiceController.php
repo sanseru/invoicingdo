@@ -37,7 +37,7 @@ class InvoiceController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['index','delivery','view','update','delete','payment','create'],
+                        'actions' => ['index','delivery','view','update','delete','payment','create','servicecount'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -301,6 +301,46 @@ class InvoiceController extends Controller
             'items' => (empty($items)) ? [new InvoiceItem()] : $items
         ]);
     }
+
+
+    public function actionServicecount()
+    {
+        $created="";
+        $paid="";
+        $cancel="";
+        $sql = "SELECT status,COUNT(status) cnt FROM invoice GROUP BY `status`";
+        $data = Yii::$app->db->createCommand($sql)->queryAll();
+
+        
+
+        $sql2 = "SELECT count(*) cnt FROM items";
+        $data2 = Yii::$app->db->createCommand($sql2)->queryAll();
+
+        foreach($data as $models):
+
+            if($models['status'] == 'created'){
+                $created = $models;
+            }
+
+            
+            if($models['status'] == 'paid'){
+                $paid = $models;
+            }
+        endforeach;
+
+        $data = [
+            'status'=>'sukses',
+            'created'=>$created,
+            'paid'=>$paid,
+            'items'=>$data2[0]['cnt'],
+
+        ];
+
+                  
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        return $data;
+    }
+
 
     /**
      * Deletes an existing Invoice model.
