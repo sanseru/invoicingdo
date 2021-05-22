@@ -138,7 +138,7 @@ use yii\helpers\Html;
     </tr>
     <tr>
         <td align="left">
-            Dibawa Oleh <br>
+        <?=$company[0]['nama_perusahaan']?><br>
             <br>
             <br>
 
@@ -152,19 +152,6 @@ use yii\helpers\Html;
                     }
             ?> <br><br>
             <br>
-            (Tanda Tangan & CAP)
-        </td>
-        <td align="right">
-            <p>Diterima Oleh</p> <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            
-
-            (Tanda Tangan & CAP)
         </td>
     </tr>
 </table>
