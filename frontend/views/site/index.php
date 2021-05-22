@@ -1,4 +1,5 @@
 <?php
+use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 $this->registerJs("
@@ -57,6 +58,17 @@ $this->title = 'Home';
             <progress max="100" value="100"></progress>
         </div>
     </div>
+<br>
+<br>
+<div class="row">
+<div class="col-sm-4 col-md-6 col-lg-12 text-center">
+<?= Html::img('/img/undraw_product_tour_re_8bai.svg', [
+            'alt' => 'Login',
+            'width' => '100%',
+            'height' => '50%',
 
+            ]);?>
+</div>
 
+</div>
 </div>
