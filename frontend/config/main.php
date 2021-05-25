@@ -8,7 +8,7 @@ $params = array_merge(
 
 return [
     'id' => 'app-frontend',
-    'name' => 'Nama Aplikasi',
+    'name' => 'Main Application',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
@@ -46,6 +46,12 @@ return [
 
 
                 ['pattern' => 'Invoice','route' => 'invoice/index','suffix' => '.xml',],
+                ['pattern' => 'InvoiCreate','route' => 'invoice/create','suffix' => '.xml',],
+                ['pattern' => 'Printinvoice','route' => 'invoice/view','suffix' => '.xml',],
+                ['pattern' => 'deliveryorder','route' => 'invoice/delivery','suffix' => '.xml',],
+                ['pattern' => 'Invoiupdate','route' => 'invoice/update','suffix' => '.xml',],
+                ['pattern' => 'Invoipayment','route' => 'invoice/payment','suffix' => '.xml',],
+
 
                 ['pattern' => 'masterperusahaan','route' => 'masterperusahaan/index','suffix' => '.xml',],
                 ['pattern' => 'masterperusahaanCreate','route' => 'masterperusahaan/create','suffix' => '.xml',],

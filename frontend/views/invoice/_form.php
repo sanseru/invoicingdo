@@ -12,17 +12,88 @@ $(document).ready(function() {
     $('.select2').select2();
     $('.select2tags').select2({
         tags: 'true',
-    
     });
 });
 
   $('.dynamicform_wrapper').on('afterInsert', function(e, item) {
-    console.log('afterInsert');
     $('.select2tags').select2({
         tags: 'true',
     
     });
+
+    $('.form-options-body select.form-control').on('change',function(e) {
+        e.preventDefault();
+        //Untuk Pricenya
+        var name = $(this).attr(\"name\");
+        var res = name.replace('item', 'total');
+        var name2 = $(this).attr(\"name\");
+        var valname = $('[name=\"'+name+'\"]').val();
+        $.post('invoice/unitprice',{
+            name:valname
+        },
+        function(data, status){
+            $('[name=\"'+res+'\"]').val(data.data.unitPrice);
+        });  
+        //Untuk Pricenya
+        
+        
+    });
+
+    $('.form-options-body input.form-control').on('keyup', function(e) {
+        var name = $(this).attr(\"name\");
+        if (name.indexOf('gw') >= 0){
+            var res = name.replace('gw', 'jb');
+            var nw = name.replace('gw', 'nw');
+            var valgw = $('[name=\"'+name+'\"]').val();
+            var valjb = $('[name=\"'+res+'\"]').val();
+        }else if(name.indexOf('jb') >= 0){
+            var res = name.replace('jb', 'gw');
+            var nw = name.replace('jb', 'nw');
+            var valjb = $('[name=\"'+name+'\"]').val();
+            var valgw = $('[name=\"'+res+'\"]').val();
+        }
+        var jumlah = valgw - valjb;
+            $('[name=\"'+nw+'\"]').val(jumlah);
+    });
+    
+    
 });
+
+$('.form-options-body select.form-control').on('change',function(e) {
+    e.preventDefault();
+    //Untuk Pricenya
+    var name = $(this).attr(\"name\");
+    var res = name.replace('item', 'total');
+    var name2 = $(this).attr(\"name\");
+    var valname = $('[name=\"'+name+'\"]').val();
+    $.post('invoice/unitprice',{
+        name:valname
+    },
+    function(data, status){
+        $('[name=\"'+res+'\"]').val(data.data.unitPrice);
+    });
+    //Untuk Pricenya
+
+});
+
+
+$('.form-options-body input.form-control').on('keyup', function(e) {
+    var name = $(this).attr(\"name\");
+    if (name.indexOf('gw') >= 0){
+        var res = name.replace('gw', 'jb');
+        var nw = name.replace('gw', 'nw');
+        var valgw = $('[name=\"'+name+'\"]').val();
+        var valjb = $('[name=\"'+res+'\"]').val();
+    }else if(name.indexOf('jb') >= 0){
+        var res = name.replace('jb', 'gw');
+        var nw = name.replace('jb', 'nw');
+        var valjb = $('[name=\"'+name+'\"]').val();
+        var valgw = $('[name=\"'+res+'\"]').val();
+    }
+    var jumlah = valgw - valjb;
+        $('[name=\"'+nw+'\"]').val(jumlah);
+});
+
 
 ");
 
@@ -119,12 +190,10 @@ $(document).ready(function() {
                                 <tr>
                                     <th style=" text-align: center"></th>
                                     <th style="text-align: center" class="required">Name</th>
-                                    <th style="text-align: center">Terra</th>
                                     <th style=" text-align: center">Bruto</th>
+                                    <th style="text-align: center">Terra</th>
                                     <th style=" text-align: center">Netto</th>
                                     <th style=" text-align: center">Price</th>
-
-
                                 </tr>
                             </thead>
                             <tbody class="form-options-body">
@@ -136,11 +205,11 @@ $(document).ready(function() {
                                             ['prompt'=>'- Select Items-','class'=>'form-control select2tags', 'id'=>'itemstags','style' => 'width: 100%'])->label(false); ?>
                                     
                                     </td>
-                                    <td style="padding:10px" width="20%">
-                                        <?php echo $form->field($m, "[{$i}]jb")->textInput(['placeholder'=>'Unit'])->label(false);?>
-                                    </td>
                                     <td style="padding:10px" width="10%">
                                         <?php echo $form->field($m, "[{$i}]gw")->textInput(['placeholder'=>'Kg'])->label(false);?>
+                                    </td>
+                                    <td style="padding:10px" width="20%">
+                                        <?php echo $form->field($m, "[{$i}]jb")->textInput(['placeholder'=>'Kg'])->label(false);?>
                                     </td>
                                     <td style="padding:10px" width="10%">
                                         <?php echo $form->field($m, "[{$i}]nw")->textInput(['placeholder'=>'Kg'])->label(false);?>

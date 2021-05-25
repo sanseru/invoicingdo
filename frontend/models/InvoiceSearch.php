@@ -45,6 +45,11 @@ class InvoiceSearch extends ModelInvoice
 
         // add conditions that should always apply here
 
+        $query->orderBy([
+            'id' => SORT_DESC //Need this line to be fixed
+         ]);
+
+
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);

@@ -37,7 +37,7 @@ class InvoiceController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['index','delivery','view','update','delete','payment','create','servicecount'],
+                        'actions' => ['index','delivery','view','update','delete','payment','create','servicecount','unitprice'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -333,6 +333,25 @@ class InvoiceController extends Controller
             'created'=>$created,
             'paid'=>$paid,
             'items'=>$data2[0]['cnt'],
+
+        ];
+
+                  
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        return $data;
+    }
+
+    public function actionUnitprice()
+    {
+
+        $namabarang = $_POST['name'];
+        $sql = "SELECT unitPrice FROM items WHERE name = '$namabarang'";
+        $data = Yii::$app->db->createCommand($sql)->queryAll();
+
+        
+        $data = [
+            'status'=>'sukses',
+            'data'=>$data[0],
 
         ];
 
