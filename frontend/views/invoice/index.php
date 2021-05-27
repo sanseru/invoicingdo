@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'due_date',
             'name',
             'attn',
-            'amount',
+            // 'amount',
             //'transaction_date',
             //'transaction_id',
             [
