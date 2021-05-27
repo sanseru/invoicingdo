@@ -50,6 +50,7 @@ AppAsset::register($this);
             ['label' => 'Master', 'url' => ['#'],'items' => [
                 ['label' => 'Master Company profile', 'url' => 'masterperusahaan'],
                 ['label' => 'Master Item', 'url' => 'items'],
+                ['label' => 'Create Username', 'url' => 'site/signup'],
             ],
         ],
         ];

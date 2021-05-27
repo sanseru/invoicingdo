@@ -43,6 +43,8 @@ return [
             'showScriptName' => false,
             'rules' => [
                 ['pattern' => 'Home','route' => 'site/index','suffix' => '.xml',],
+                ['pattern' => 'signup','route' => 'site/signup','suffix' => '.xml',],
+                ['pattern' => 'login','route' => 'site/login','suffix' => '.xml',],
 
 
                 ['pattern' => 'Invoice','route' => 'invoice/index','suffix' => '.xml',],
