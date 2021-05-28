@@ -81,8 +81,8 @@ use yii\helpers\Html;
         <td><?= $ix;?></td>
         <td><?= $m['item'];?></td>
         <td align="center"><?= $m['cnt'];?></td>
-        <td align="center">$. <?=  number_format($m['total'],0);?></td>
-        <td align="right">$. <?=   number_format($m['cnt']*$m['total'],0);?></td>
+        <td align="center">USD <?=  number_format($m['total'],0);?></td>
+        <td align="right">USD <?=   number_format($m['cnt']*$m['total'],0);?></td>
     </tr>
 
 
@@ -98,19 +98,23 @@ use yii\helpers\Html;
             <b>Subtotal</b><br>
         </td>
         <td align="right">
-            <b>$. <?= number_format($jumlahss,0);?></b><br>
+            <b>USD <?= number_format($jumlahss,0);?></b><br>
 
         </td>
     </tr>
 </table>
 
 <table border="0" width="100%" cellpadding="5" cellspacing="5">
-    <tr>
+    <tr style="background-color:#eee">
         <td bgcolor="#eee">
-            <b>Invoice # <?= $model->invoice_number;?></b><br>
-            Invoice Date # <?= $model->created_at;?><br>
-            Due Date # <?= $model->due_date;?><br>
-           Delivery Order # <?= $model->deliveryorder;?><br>
+            <b>Invoice  : <?= $model->invoice_number;?></b><br>
+            Invoice Date : <?= date("d-m-Y", strtotime($model->created_at));?><br>
+            Due Date : <?= $model->due_date;?><br>
+        </td>
+        <td bgcolor="#eee" align="right">
+            Vessel Name  : <?= $model->vessel_name;?><br>
+            No.Container  : <?= $model->no_container;?><br>
+            N0. Seal  : <?= $model->no_seal;?><br>
 
         </td>
     </tr>
@@ -128,8 +132,6 @@ use yii\helpers\Html;
                             ]);
                     }
             ?> <br><br>
-
-            (..................................)
         </td>
     </tr>
 </table>

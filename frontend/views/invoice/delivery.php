@@ -39,15 +39,15 @@ use yii\helpers\Html;
 
     <tr>
         <td align="right" bgcolor="#eee">
-            <b>Port of Loading # <?= $model->portof_loading;?></b><br>
-            Port of Discharge # <?= $model->portof_discharge;?><br>
+            <b>Port of Loading  <?= $model->portof_loading;?></b><br>
+            Port of Discharge  <?= $model->portof_discharge;?><br>
         </td>
     </tr>
     <tr>
         <td>
-            VESSEL NAME # <?= $model->vessel_name;?><br>
-            NO. CONTAINER # <?= $model->no_container;?><br>
-            NO. SEAL # <?= $model->no_seal;?><br>
+            VESSEL NAME  <?= $model->vessel_name;?><br>
+            NO. CONTAINER  <?= $model->no_container;?><br>
+            NO. SEAL  <?= $model->no_seal;?><br>
 
         </td>
     </tr>
