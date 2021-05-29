@@ -401,12 +401,15 @@ class InvoiceController extends Controller
         //tambahkan skenario payment untuk mengaktifkan rule pada model
         $model->scenario = 'payment';
         $model->transaction_date = date('Y-m-d');
-        $model->payment = $model->amount;
+        // $model->payment = $model->amount;
 
         //query data item invoice untuk ditampilkan
         $items = new ActiveDataProvider([
             'query' => InvoiceItem::find()->where(['id_invoice'=>$id]),
         ]);
+
+        $sql = "SELECT `item`, sum(nw) AS `cnt`,total FROM `invoice_item` WHERE `id_invoice`=$id GROUP BY `item`,total";                                      
+        $leadsCount = Yii::$app->db->createCommand($sql)->queryAll();
 
         if($model->load(Yii::$app->request->post())){
             //ganti status menjadi 'paid'
@@ -419,7 +422,8 @@ class InvoiceController extends Controller
 
         return $this->render('payment', [
             'model' => $model,
-            'items' => $items
+            'items' => $items,
+            'leadsCount' => $leadsCount,
         ]);
     }
 }

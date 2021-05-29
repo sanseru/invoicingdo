@@ -49,6 +49,7 @@ AppAsset::register($this);
             ['label' => 'Invoice', 'url' => ['/invoice/index']],
             ['label' => 'Master', 'url' => ['#'],'items' => [
                 ['label' => 'Master Company profile', 'url' => 'masterperusahaan'],
+                ['label' => 'Bisnis Partner', 'url' => 'bisnis-partner'],
                 ['label' => 'Master Item', 'url' => 'items'],
                 ['label' => 'Create Username', 'url' => 'site/signup'],
             ],

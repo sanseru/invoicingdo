@@ -4,6 +4,8 @@ use yii\helpers\Html;
 use kartik\date\DatePicker;
 use wbraganca\dynamicform\DynamicFormWidget;
 use frontend\models\Masterperusahaan;
+use frontend\models\BisnisPartner;
+
 use frontend\models\Items;
 use yii\helpers\ArrayHelper;
 
@@ -76,6 +78,23 @@ $('.form-options-body select.form-control').on('change',function(e) {
 
 });
 
+$('.penerimainvoice').on('change',function(e) {
+    e.preventDefault();
+
+    var val = $('.penerimainvoice').val();
+    $.post('bisnis-partner/caribisnis',{
+        id:val
+    },
+    function(data, status){
+        console.log(data.data.CardName);
+        $('#namaperusaahanx').val(data.data.CardName);
+        $('#attnx').val(data.data.attention);
+        $('#addressx').val(data.data.alamat);
+
+    });
+
+});
+
 
 $('.form-options-body input.form-control').on('keyup', function(e) {
     var name = $(this).attr(\"name\");
@@ -109,7 +128,7 @@ $('.form-options-body input.form-control').on('keyup', function(e) {
     
     <div class="row">
     <div class="col-md-6">
-    <?= $form->field($model, 'invoice_number')->textInput(['maxlength' => true,'readonly'=>true,'placeholder'=>'Number'])->label(false) ?>
+    <?= $form->field($model, 'invoice_number')->textInput(['maxlength' => true,'placeholder'=>'No Invoice'])->label('No Invoice') ?>
     <?php
             echo $form->field($model, 'due_date')->widget(DatePicker::classname(), [
                 'options' => ['placeholder' => 'Due date'],
@@ -118,13 +137,13 @@ $('.form-options-body input.form-control').on('keyup', function(e) {
                     'autoclose'=>true,
                     'format' => 'yyyy-mm-dd'
                 ]
-            ])->label(false);
+            ])->label('Due Date Invoice');
             ?>
     </div>
     <div class="col-md-6">
     <?= $form->field($model, 'idheadcompany', ['options' => ['tag' => 'false']])-> dropDownList(
                     ArrayHelper::map(Masterperusahaan::find()->all(),'id','nama_perusahaan'),
-                    ['prompt'=>'- Select Master Perusahaan-','class'=>'form-control select2 m-b-1','style' => 'width: 100%'])->label(false); ?>
+                    ['prompt'=>'- Select Master Perusahaan-','class'=>'form-control select2 m-b-1','style' => 'width: 100%'])->label('Master Perusahaan'); ?>
     </div>
     </div>
 
@@ -132,9 +151,13 @@ $('.form-options-body input.form-control').on('keyup', function(e) {
         <div class="col-md-5">
             <h3>Penerima</h3>
             
-            <?= $form->field($model, 'name')->textInput(['maxlength' => true,'placeholder'=>'Name'])->label('Company Name / Name Consignee') ?>
-            <?= $form->field($model, 'attn')->textInput(['maxlength' => true,'placeholder'=>'ATTN'])->label('Attention') ?>
-            <?= $form->field($model, 'address')->textarea(['rows' => 9,'placeholder'=>'Address'])->label('Alamat') ?>
+            <?= $form->field($model, 'perusahaan', ['options' => ['tag' => 'false']])-> dropDownList(
+                    ArrayHelper::map(Bisnispartner::find()->all(),'id','CardName'),
+                    ['prompt'=>'- Select Bisnis Partner-','class'=>'form-control select2 m-b-1 penerimainvoice','style' => 'width: 100%'])->label('Bisnis Partner'); ?>
+            
+            <?= $form->field($model, 'name')->hiddenInput(['maxlength' => true,'id'=>'namaperusaahanx'])->label(false) ?>
+            <?= $form->field($model, 'attn')->textInput(['maxlength' => true,'placeholder'=>'ATTN','id'=>'attnx'])->label('Attention') ?>
+            <?= $form->field($model, 'address')->textarea(['rows' => 9,'placeholder'=>'Address','id'=>'addressx'])->label('Alamat') ?>
         </div>
         <div class="col-md-7">
             <h3>Vessel</h3>

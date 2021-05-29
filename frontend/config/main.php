@@ -65,6 +65,12 @@ return [
                 ['pattern' => 'itemsUpdate','route' => 'items/update','suffix' => '.xml',],
                 ['pattern' => 'itemsView','route' => 'items/view','suffix' => '.xml',],
 
+
+                ['pattern' => 'bisnispartner','route' => 'bisnis-partner/index','suffix' => '.xml',],
+                ['pattern' => 'bpCreate','route' => 'bisnis-partner/create','suffix' => '.xml',],
+                ['pattern' => 'bpUpdate','route' => 'bisnis-partner/update','suffix' => '.xml',],
+                ['pattern' => 'bpView','route' => 'bisnis-partner/view','suffix' => '.xml',],
+
             ],
         ],
         

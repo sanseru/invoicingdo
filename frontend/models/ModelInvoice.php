@@ -26,6 +26,7 @@ class ModelInvoice extends \yii\db\ActiveRecord
     const STATUS_CREATED = 'created'; //invoice diterbitkan
     const STATUS_PAID = 'paid'; //invoice dibayar
     const STATUS_CANCELED = 'canceled'; //invoice dicancel
+    public $perusahaan;
 
     /**
      * {@inheritdoc}
@@ -43,11 +44,11 @@ class ModelInvoice extends \yii\db\ActiveRecord
         return [
             [['payment','transaction_date','payment_method','transaction_id'],'required','on'=>'payment'],
             [['due_date', 'name', 'attn', 'address', 'status', 'created_at','portof_loading',
-            'portof_discharge','vessel_name','no_container','no_seal','idheadcompany'], 'required'],
+            'portof_discharge','vessel_name','no_container','no_seal','idheadcompany','invoice_number','perusahaan'], 'required'],
             [['due_date', 'transaction_date', 'created_at'], 'safe'],
             [['address'], 'string'],
             [['amount', 'payment'], 'number'],
-            [['invoice_number', 'transaction_id','deliveryorder'], 'string', 'max' => 20],
+            [['invoice_number', 'transaction_id','deliveryorder'], 'string', 'max' => 100],
             [['name', 'status'], 'string', 'max' => 125],
             [['attn'], 'string', 'max' => 250],
             [['payment_method'], 'string', 'max' => 50],
@@ -74,6 +75,8 @@ class ModelInvoice extends \yii\db\ActiveRecord
             'payment' => 'Payment',
             'status' => 'Status',
             'created_at' => 'Created At',
+            'gw' => 'Bruto',
+
         ];
     }
 
@@ -82,9 +85,9 @@ class ModelInvoice extends \yii\db\ActiveRecord
         if($insert){
             //sebagai sample saja untuk mengenerate nomor invoice
             //format : tahun-bulan-id database
-            $number = 'INV/'.date('Y').date('m').'/'.str_pad($this->id,4,0,STR_PAD_LEFT);
+            // $number = 'INV/'.date('Y').date('m').'/'.str_pad($this->id,4,0,STR_PAD_LEFT);
             $donumber = 'DO/'.date('Y').date('m').'/'.str_pad($this->id,4,0,STR_PAD_LEFT);
-            $this->updateAttributes(['invoice_number'=>$number,'deliveryorder'=>$donumber]);
+            $this->updateAttributes(['deliveryorder'=>$donumber]);
         }
         parent::afterSave($insert, $changedAttributes);
     }
